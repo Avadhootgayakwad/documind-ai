@@ -1,0 +1,271 @@
+/* Import Design System */
+@import './styles/design-system.css';
+
+/* Enhanced Global Styles with Fluent Design */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  color: var(--fluent-neutral-foreground);
+  font-size: var(--text-base);
+  line-height: 1.4;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+app-root {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* Design system variables are now imported from design-system.css */
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--fluent-primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--fluent-neutral-background);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fluent-neutral-stroke);
+  border-radius: 6px;
+  border: 2px solid var(--fluent-neutral-background);
+  transition: background var(--fluent-duration-fast) var(--fluent-curve-easy-ease);
+}
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fluent-neutral-stroke-hover);
+  }
+
+/* Selection styling */
+::selection {
+  background: var(--fluent-primary-light);
+  color: var(--fluent-neutral-foreground);
+}
+
+/* Common button styles */
+/* Simplified Button Utility Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  font-weight: 500;
+  border: 1px solid var(--fluent-neutral-stroke);
+  background: var(--fluent-neutral-background);
+  color: var(--fluent-neutral-foreground);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 32px;
+  min-width: 80px;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn:hover {
+  border-color: var(--fluent-neutral-stroke-hover);
+  background: var(--fluent-neutral-background-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--fluent-shadow-4);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--fluent-shadow-2);
+  background: var(--fluent-neutral-background-pressed);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.btn--primary {
+  background: var(--fluent-primary);
+  border-color: var(--fluent-primary);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: var(--fluent-primary-hover);
+  border-color: var(--fluent-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--fluent-primary-pressed);
+  border-color: var(--fluent-primary-pressed);
+}
+
+/* Common input styles */
+.fluent-input {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--fluent-neutral-stroke);
+  border-radius: var(--radius-sm);
+  background: var(--fluent-neutral-background);
+  color: var(--fluent-neutral-foreground);
+  font-family: inherit;
+  font-size: var(--text-base);
+  line-height: 1.4;
+  transition: all var(--transition-fast);
+  box-shadow: var(--fluent-shadow-2);
+}
+
+  .fluent-input:hover {
+    border-color: var(--fluent-neutral-stroke-hover);
+    box-shadow: var(--fluent-shadow-4);
+  }
+
+  .fluent-input:focus {
+    border-color: var(--fluent-primary);
+    box-shadow: 0 0 0 1px var(--fluent-primary), var(--fluent-shadow-4);
+    outline: none;
+  }
+
+  .fluent-input::placeholder {
+    color: var(--fluent-neutral-foreground-3);
+  }
+
+/* Common card styles */
+.fluent-card {
+  background: white;
+  border: 1px solid var(--fluent-neutral-stroke);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--fluent-shadow-4);
+  transition: all var(--transition-normal);
+}
+
+.fluent-card:hover {
+  border-color: var(--fluent-neutral-stroke-hover);
+  box-shadow: var(--fluent-shadow-8);
+  transform: translateY(-2px);
+}
+
+/* Animation keyframes */
+@keyframes fluent-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fluent-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fluent-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fluent-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fluent-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Utility classes */
+.fluent-elevation-2 {
+  box-shadow: var(--fluent-shadow-2);
+}
+
+.fluent-elevation-4 {
+  box-shadow: var(--fluent-shadow-4);
+}
+
+.fluent-elevation-8 {
+  box-shadow: var(--fluent-shadow-8);
+}
+
+.fluent-elevation-16 {
+  box-shadow: var(--fluent-shadow-16);
+}
+
+.fluent-elevation-28 {
+  box-shadow: var(--fluent-shadow-28);
+}
+
+.fluent-elevation-64 {
+  box-shadow: var(--fluent-shadow-64);
+}
+
+.fluent-animate-in {
+  animation: fluent-fade-in var(--fluent-duration-normal) var(--fluent-curve-decelerate-mid);
+}
+
+.fluent-animate-slide-left {
+  animation: fluent-slide-in-left var(--fluent-duration-normal) var(--fluent-curve-decelerate-mid);
+}
+
+.fluent-animate-slide-right {
+  animation: fluent-slide-in-right var(--fluent-duration-normal) var(--fluent-curve-decelerate-mid);
+}
+
+.fluent-animate-scale {
+  animation: fluent-scale-in var(--fluent-duration-normal) var(--fluent-curve-decelerate-mid);
+}

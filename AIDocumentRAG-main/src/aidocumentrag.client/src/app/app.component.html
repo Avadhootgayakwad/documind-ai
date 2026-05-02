@@ -1,0 +1,21 @@
+<div class="app-container">
+  <!-- Sidebar -->
+  <app-documents-quick-view (documentSelected)="onDocumentSelected($event)"
+                            (selectionChanged)="onSelectionChanged($event)">
+  </app-documents-quick-view>
+
+  <!-- Main Content - Chat View -->
+  <app-chat-view [selectedDocument]="selectedDocument"
+                 [documentSelection]="documentSelection">
+  </app-chat-view>
+
+  <!-- Loading Dialog Overlay -->
+  <app-loading-dialog [loadingState]="loadingState"></app-loading-dialog>
+
+  <!-- File Upload Modal -->
+  <app-file-upload-modal 
+    (fileUploaded)="onFileUploaded($event)"
+    (uploadError)="onUploadError($event)"
+    (closeModal)="onUploadModalClosed()">
+  </app-file-upload-modal>
+</div>

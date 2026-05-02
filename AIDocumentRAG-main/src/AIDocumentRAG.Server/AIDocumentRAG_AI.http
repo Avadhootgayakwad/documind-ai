@@ -1,0 +1,49 @@
+@AIDocumentRAG.Server_HostAddress = https://localhost:7040
+
+### Test AI Chat (Non-streaming)
+POST {{AIDocumentRAG.Server_HostAddress}}/api/aichat/chat
+Content-Type: application/json
+
+{
+  "prompt": "Hello, how are you today?",
+  "servicer": "openai",
+  "model": "gpt-4o-mini"
+}
+
+###
+
+### Test AI Chat with document question
+POST {{AIDocumentRAG.Server_HostAddress}}/api/aichat/chat
+Content-Type: application/json
+
+{
+  "prompt": "What are the key features of semantic kernel?",
+  "servicer": "openai",
+  "model": "gpt-4o-mini"
+}
+
+###
+
+### Test AI Chat Streaming
+POST {{AIDocumentRAG.Server_HostAddress}}/api/aichat/chat/stream
+Content-Type: application/json
+
+{
+  "prompt": "Tell me a short story about artificial intelligence",
+  "servicer": "openai",
+  "model": "gpt-4o-mini"
+}
+
+###
+
+### Test empty prompt (should return error)
+POST {{AIDocumentRAG.Server_HostAddress}}/api/aichat/chat
+Content-Type: application/json
+
+{
+  "prompt": "",
+  "servicer": "openai",
+  "model": "gpt-4o-mini"
+}
+
+###

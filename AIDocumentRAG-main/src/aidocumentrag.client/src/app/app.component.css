@@ -1,0 +1,112 @@
+:root {
+  --sidebar-min-width: 200px;
+  --sidebar-max-width: 300px;
+  --sidebar-padding: 20px 12px;
+  --border-color: var(--fluent-neutral-stroke);
+  --shadow-light: var(--fluent-shadow-2);
+  --shadow-medium: var(--fluent-shadow-4);
+  --shadow-heavy: var(--fluent-shadow-8);
+  --shadow-extra: var(--fluent-shadow-16);
+  --transition-fast: var(--fluent-duration-fast);
+  --transition-normal: var(--fluent-duration-normal);
+  --transition-slow: var(--fluent-duration-slow);
+  --curve-ease: var(--fluent-curve-easy-ease);
+  --curve-decelerate: var(--fluent-curve-decelerate-mid);
+}
+
+.app-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
+  background: var(--fluent-neutral-background);
+  overflow: hidden;
+  animation: fluent-fade-in var(--transition-slow) var(--curve-decelerate);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  transform: translateZ(0);
+  grid-template-areas: 
+    "sidebar main";
+}
+
+/* Component positioning - Desktop (default) */
+app-documents-quick-view {
+  grid-area: sidebar;
+  display: block;
+  border-right: 1px solid var(--border-color);
+  animation: fluent-slide-in-left var(--transition-slow) var(--curve-decelerate) 0.1s both;
+  overflow: hidden;
+}
+
+app-chat-view {
+  grid-area: main;
+  display: block;
+  animation: fluent-slide-in-right var(--transition-slow) var(--curve-decelerate) 0.2s both;
+  overflow: hidden;
+}
+
+/* Enhanced focus indicators */
+.icon-button:focus-visible,
+.user-avatar:focus-visible {
+  outline: 2px solid var(--fluent-primary);
+  outline-offset: 2px;
+}
+
+/* Tablet Layout */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .app-container {
+    grid-template-columns: min-content 1fr;
+  }
+}
+
+/* Mobile Layout - 768px and below */
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+      "sidebar" 
+      "main";
+  }
+
+  app-documents-quick-view {
+    grid-area: sidebar;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    max-height: 300px;
+  }
+
+  app-chat-view {
+    grid-area: main;
+  }
+}
+
+/* Small Mobile Layout */
+@media (max-width: 480px) {
+  .app-container {
+    grid-template-rows: auto 1fr;
+  }
+  
+  app-documents-quick-view {
+    max-height: 200px;
+  }
+  
+  app-chat-view {
+    grid-area: main;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .sidebar-item {
+    min-height: 48px;
+  }
+  
+  .action-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
